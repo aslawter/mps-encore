@@ -1,28 +1,12 @@
-== README
+==Encore
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Manage, track, and tweak your corporate resume to wow customers, and snag your next performance.
 
-Things you may want to cover:
+* Systematically approach the use of past performance documentation for bid and proposal use.
+* Find past performances easily.
+* Understand which examples of your corporate resume are frequently used, and how.
+* Systematically approach selection of your best work to use with future clients.
+* Keep customer contact information current, and easy to reference.
+* Manage version control for your past contracts.
+* See which contracts need to be updated and when.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
