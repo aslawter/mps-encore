@@ -1,3 +1,6 @@
+<h3>Sign in Page</h3>
+<p>Don't have an account yet? <%= link_to "Sign up", [:new, :user] %>
+
 <%= form_for :session, url: session_path do |form| %>
   <div>
     <%= form.label :email %>

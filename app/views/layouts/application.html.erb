@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<% if signed_in? %>
+  <p>You are signed in as <%= current_user.email %> <%= link_to "Sign out", session_path, method: :delete %></p>
+  <% if current_user.admin? %>
+    <p>You are designated as a site admin</p>
+  <% end %>
+<% end %>
+<h1><%= link_to "Encore", :root %><h1>
+
+
 <%= yield %>
 
 </body>
