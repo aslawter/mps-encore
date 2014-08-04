@@ -17,22 +17,24 @@ ActiveRecord::Schema.define(version: 20140804192739) do
   enable_extension "plpgsql"
 
   create_table "customers", force: true do |t|
-    t.string   "name",                      null: false
+    t.string   "name",       default: "",   null: false
     t.boolean  "federal",    default: true, null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  add_index "customers", ["name"], name: "index_customers_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                           null: false
     t.string   "password_digest",                 null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.string   "first_name",                      null: false
-    t.string   "last_name",                       null: false
+    t.string   "first_name",      default: "",    null: false
+    t.string   "last_name",       default: "",    null: false
     t.boolean  "admin",           default: false, null: false
     t.boolean  "approver",        default: false, null: false
-    t.boolean  "enabled",         default: false, null: false
+    t.boolean  "active",          default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

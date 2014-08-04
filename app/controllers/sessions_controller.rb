@@ -7,10 +7,14 @@ class SessionsController < ApplicationController
   def create
     user = authenticate_session(session_params)
 
-    if user.enabled? && sign_in(user)
-      redirect_to :root
+    if user
+      if user.active? && sign_in(user)
+        redirect_to :root
+      else
+        redirect_to [user, :pending_users]
+      end
     else
-      redirect_to [user, :pending_users]
+      render :new
     end
   end
 

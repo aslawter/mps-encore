@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:id])
+    user.delete
+    redirect_to :dashboard
+  end
+
   private
 
   def user_params

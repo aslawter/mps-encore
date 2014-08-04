@@ -1,1 +1,14 @@
 <h2>MPS Dashboard Page</h2>
+
+<% if current_user.admin? %>
+  <p>Users awaiting site access: <%= @users.count %></p>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.first_name %> <%= user.last_name %>, <%= user.email %> - Requested access <%= time_ago_in_words(user.created_at) %> ago.</li>
+      <%= button_to "Approve Access", [user, :site_access_approvals] %>
+      <%= button_to "Deny Access", user, method: :delete %>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Customers", :customers %>
