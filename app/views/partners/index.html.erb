@@ -1,0 +1,25 @@
+<h2>All Partners Page</h2>
+
+<h3>Add a Partner</h3>
+
+<%= form_for @partner do |form| %>
+  <%= render "error_messages", target: @partner %>
+  <div>
+    <%= form.label :name, "Company Name" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :website %>
+    <%= form.text_field :website %>
+  </div>
+  <div>
+    <%= form.submit :submit %>
+  </div>
+<% end %> 
+
+<h3>Registered Partners</h3>
+<ul>
+  <% @partners.each do |partner| %>
+    <li><%= partner.name %> -- <%= partner.website  %></li>
+  <% end %>
+<ul>

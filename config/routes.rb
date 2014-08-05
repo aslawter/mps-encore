@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :customers, only: [:new, :create, :index]
+  resources :partners, only: [:create, :index]
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
