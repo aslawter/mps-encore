@@ -7,8 +7,14 @@ Rails.application.routes.draw do
     resource :pending_users, only: [:show]
   end
 
-  resources :customers, only: [:new, :create, :index]
-  resources :partners, only: [:create, :index]
+  resources :contacts, only: [:index]
+  resources :customers, only: [:new, :create, :show, :index] do
+    resources :contacts, only: [:new, :create]
+  end
+
+  resources :partners, only: [:create, :index, :show] do
+    resources :contacts, only: [:new, :create]
+  end
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard

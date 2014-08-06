@@ -15,11 +15,11 @@
   <div>
     <%= form.submit :submit %>
   </div>
-<% end %> 
+<% end %>
 
 <h3>Registered Partners</h3>
 <ul>
   <% @partners.each do |partner| %>
-    <li><%= partner.name %> -- <%= partner.website  %></li>
+    <li><%= link_to partner.name, partner %> -- <%= link_to partner.website %></li>
   <% end %>
 <ul>

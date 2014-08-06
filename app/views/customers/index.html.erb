@@ -23,6 +23,6 @@
 <p>This list is maintained and updated by the site administrator.</p>
 <ul>
   <% @customers.each do |customer| %>
-    <li><%= customer.name %></li>
+    <li><%= link_to customer.name, customer %></li>
   <% end %>
 <ul>

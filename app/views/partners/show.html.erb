@@ -1,0 +1,7 @@
+<h2><%= @partner.name %> Page</h2>
+
+<%= link_to "Create a new contact", [:new, @partner, :contact] %>
+
+<h3>Contacts</h3>
+
+<%= render 'partner_contacts' %>

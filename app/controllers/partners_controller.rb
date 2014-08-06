@@ -1,4 +1,10 @@
 class PartnersController < ApplicationController
+  def show
+    @partner = Partner.find(params[:id]) 
+    @contact = Contact.new
+    @contacts = @partner.contacts
+  end
+
   def index
     @partner = Partner.new
     @partners = Partner.all
