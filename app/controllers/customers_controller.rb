@@ -3,6 +3,7 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @contacts = @customer.contacts
     @contact = Contact.new
+    @performances = @customer.performances
   end
 
   def index

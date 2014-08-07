@@ -1,6 +1,9 @@
 class Contact < ActiveRecord::Base
   belongs_to :organization, polymorphic: true
 
+  has_many :performance_contacts
+  has_many :performances, through: :performance_contacts
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :title, presence: true

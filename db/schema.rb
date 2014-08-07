@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806141738) do
+ActiveRecord::Schema.define(version: 20140808175316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,18 @@ ActiveRecord::Schema.define(version: 20140806141738) do
   end
 
   add_index "contacts", ["email"], name: "index_contacts_on_email", unique: true, using: :btree
-  add_index "contacts", ["organization_id", "organization_type"], name: "index_contacts_on_organization_id_and_organization_type", unique: true, using: :btree
+  add_index "contacts", ["organization_id", "organization_type"], name: "index_contacts_on_organization_id_and_organization_type", using: :btree
+
+  create_table "contacts_performances", id: false, force: true do |t|
+    t.integer  "performance_id",              null: false
+    t.integer  "contact_id",                  null: false
+    t.string   "role",           default: "", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "contacts_performances", ["contact_id"], name: "index_contacts_performances_on_contact_id", using: :btree
+  add_index "contacts_performances", ["performance_id"], name: "index_contacts_performances_on_performance_id", using: :btree
 
   create_table "customers", force: true do |t|
     t.string   "name",       default: "",   null: false
@@ -51,6 +62,25 @@ ActiveRecord::Schema.define(version: 20140806141738) do
 
   add_index "partners", ["name"], name: "index_partners_on_name", unique: true, using: :btree
   add_index "partners", ["website"], name: "index_partners_on_website", unique: true, using: :btree
+
+  create_table "performances", force: true do |t|
+    t.string   "title"
+    t.integer  "customer_id",                                              null: false
+    t.integer  "partner_id",                                               null: false
+    t.integer  "user_id",                                                  null: false
+    t.boolean  "prime",                                    default: false, null: false
+    t.string   "contract_type",                            default: "",    null: false
+    t.string   "contract_number",                          default: "",    null: false
+    t.decimal  "value",           precision: 10, scale: 2, default: 0.0,   null: false
+    t.date     "starts_on",                                                null: false
+    t.date     "ends_on",                                                  null: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+  end
+
+  add_index "performances", ["customer_id"], name: "index_performances_on_customer_id", using: :btree
+  add_index "performances", ["partner_id"], name: "index_performances_on_partner_id", using: :btree
+  add_index "performances", ["user_id"], name: "index_performances_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                           null: false

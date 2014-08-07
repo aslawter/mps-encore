@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:index]
   resources :customers, only: [:new, :create, :show, :index] do
     resources :contacts, only: [:new, :create]
+    resources :performances, only: [:new, :create]
   end
 
   resources :partners, only: [:create, :index, :show] do
