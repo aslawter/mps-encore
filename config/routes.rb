@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :performances, only: [:new, :create]
   end
 
+  resources :performances, only: [:show] do
+    resources :performance_contacts, only: [:new, :create]
+  end
+
   resources :partners, only: [:create, :index, :show] do
     resources :contacts, only: [:new, :create]
   end

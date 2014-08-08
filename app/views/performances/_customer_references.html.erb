@@ -1,0 +1,27 @@
+<div class="references-container">
+  <div>
+    <%= link_to "Add a new customer or partner contact", [:new, @performance, :performance_contact] %>
+  </div>
+
+  <div class="customer-references">
+    <h3>Customer References</h3>
+    <ul>
+      <% @customer_contacts.each do |customer_contact| %>
+        <li><%= customer_contact.full_name %> - <%= customer_contact.email %> - <%= customer_contact.title %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="partner-refercence">
+    <% if @performance.prime %>
+      <h3>Partner References</h3>
+    <% else %>
+      <h3>Prime Contractor References</h3>
+    <% end %>
+    <ul>
+      <% @partner_contacts.each do |partner_contact| %>
+        <li><%= partner_contact.full_name %><%= partner_contact.email %> - <%= partner_contact.title %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

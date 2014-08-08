@@ -10,11 +10,17 @@ class PerformancesController < ApplicationController
     @performance = current_user.performances.new(performance_params.merge(customer: @customer))
 
     if @performance.save
-      redirect_to @customer
+      redirect_to @performance
     else
       @partners = Partner.all
       render :new
     end
+  end
+
+  def show
+    @performance = Performance.find(params[:id])
+    @customer_contacts = @performance.customer_references
+    @partner_contacts = @performance.partner_references
   end
 
   private

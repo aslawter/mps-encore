@@ -1,0 +1,12 @@
+<h2>Add a new contact person to the performance summary</h2>
+<p>Performance Name: <%= @performance.title %></p>
+<p>Add a customer contact or a partner contact.</p>
+<p>Don't see the customer you're looking for? <%= link_to "Add a customer here", [:new, @customer, :contact] %>
+
+<h3>Add a Customer Contact</h3>
+<%= render "customer_contact" %>
+
+<h3>Or...</h3>
+
+<h3>Add a Partner Contact</h3>
+<%= render "partner_contact" %>

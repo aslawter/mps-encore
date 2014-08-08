@@ -1,0 +1,15 @@
+<div>
+  <%= form_for [@performance, @performance_contact] do |form| %>
+    <div>
+      <%= form.label :contact_id %>
+      <%= form.collection_select(:contact_id, @partner_contacts, :id, :full_name, include_blank: "Select One") %>
+    </div>
+    <div>
+      <%= form.label :role, "Contract Role" %>
+      <%= form.select :role, PerformanceContact::PARTNER_ROLE, include_blank: "Select One" %>
+    <div>
+    <div>
+      <%= form.submit :submit %>
+    </div>
+<% end %>
+</div>

@@ -1,0 +1,10 @@
+<h2>Past Performance for <%= @performance.title %></h3>
+
+<div>
+  <p>Created by: <%= @performance.user.email %><br>
+    Date created: <%= @performance.created_at.to_formatted_s(:long) %></p>
+</div>
+
+<%= render "performance_emperical" %>
+
+<%= render "customer_references" %>

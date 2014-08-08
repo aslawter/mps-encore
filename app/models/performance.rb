@@ -16,4 +16,20 @@ class Performance < ActiveRecord::Base
   validates :value, presence: true
   validates :partner_id, presence: true
   validates :user, presence: true
+
+  def customer_references
+    contacts.where(organization_type: "Customer")
+  end
+
+  def partner_references
+    contacts.where(organization_type: "Partner")
+  end
+
+  def period_start
+    starts_on.to_formatted_s(:long)
+  end
+
+  def period_end
+    ends_on.to_formatted_s(:long)
+  end
 end

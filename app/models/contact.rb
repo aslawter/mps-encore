@@ -18,4 +18,8 @@ class Contact < ActiveRecord::Base
   def self.partner
     where(organization_type: "Partner")
   end
+
+  def full_name
+    first_name + ' ' + last_name
+  end
 end

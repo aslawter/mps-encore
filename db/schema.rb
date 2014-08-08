@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808175316) do
+ActiveRecord::Schema.define(version: 20140809183238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,17 +32,6 @@ ActiveRecord::Schema.define(version: 20140808175316) do
   add_index "contacts", ["email"], name: "index_contacts_on_email", unique: true, using: :btree
   add_index "contacts", ["organization_id", "organization_type"], name: "index_contacts_on_organization_id_and_organization_type", using: :btree
 
-  create_table "contacts_performances", id: false, force: true do |t|
-    t.integer  "performance_id",              null: false
-    t.integer  "contact_id",                  null: false
-    t.string   "role",           default: "", null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
-  add_index "contacts_performances", ["contact_id"], name: "index_contacts_performances_on_contact_id", using: :btree
-  add_index "contacts_performances", ["performance_id"], name: "index_contacts_performances_on_performance_id", using: :btree
-
   create_table "customers", force: true do |t|
     t.string   "name",       default: "",   null: false
     t.boolean  "federal",    default: true, null: false
@@ -62,6 +51,19 @@ ActiveRecord::Schema.define(version: 20140808175316) do
 
   add_index "partners", ["name"], name: "index_partners_on_name", unique: true, using: :btree
   add_index "partners", ["website"], name: "index_partners_on_website", unique: true, using: :btree
+
+  create_table "performance_contacts", force: true do |t|
+    t.integer  "performance_id", null: false
+    t.integer  "contact_id",     null: false
+    t.integer  "user_id",        null: false
+    t.string   "role",           null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "performance_contacts", ["performance_id", "contact_id"], name: "index_performance_contacts_on_performance_id_and_contact_id", unique: true, using: :btree
+  add_index "performance_contacts", ["performance_id", "role"], name: "index_performance_contacts_on_performance_id_and_role", unique: true, using: :btree
+  add_index "performance_contacts", ["user_id"], name: "index_performance_contacts_on_user_id", using: :btree
 
   create_table "performances", force: true do |t|
     t.string   "title"
