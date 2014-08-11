@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
 
   def create
     @organization = find_organization
-    @contact = Contact.new(contact_params.merge(organization: @organization))
+    @contact = current_user.contacts.new(contact_params.merge(organization: @organization))
 
     if @contact.save
       redirect_to @organization

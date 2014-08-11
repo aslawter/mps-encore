@@ -1,4 +1,5 @@
 <%= form_for [@organization, @contact] do |form| %>
+  <%= render "error_messages", target: @contact %>
   <div>
     <%= form.label :first_name %>
     <%= form.text_field  :first_name %>
@@ -20,12 +21,12 @@
   </div>
 
   <div>
-    <%= form.label :phone %>
+    <%= form.label :phone, "Phone (no special characters)" %>
     <%= form.telephone_field :phone %>
   </div>
 
   <div>
-    <%= form.label :fax %>
+    <%= form.label :fax, "Fax (no special characters)" %>
     <%= form.telephone_field :fax %>
   </div>
 

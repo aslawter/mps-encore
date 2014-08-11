@@ -15,8 +15,9 @@
 <div>
   <ol>
     <% @performances.each do |performance| %>
-      <li>Performance name: <%= link_to performance.title, performance %> - Performance End: <%= performance.ends_on.to_formatted_s(:long_ordinal) %> - Contract Value: <%= number_to_currency(performance.value) %></li>
+      <li>Performance name: <%= link_to performance.title, performance %> -
+        Performance End: <%= performance.ends_on.to_formatted_s(:long_ordinal) %> -
+        Contract Value: <%= number_to_currency(performance.value) %></li>
     <% end %>
   </ol>
 </div>
-

@@ -34,7 +34,7 @@ class PerformancesController < ApplicationController
         :ends_on,
         :contract_type,
         :value,
-        :prime,
+        :prime_contractor,
         :partner_id
     )
   end

@@ -5,12 +5,16 @@ class PerformanceContactsController < ApplicationController
     @customer = @performance.customer
     @partner = @performance.partner
     @customer_contacts = @customer.contacts
-    @partner_contacts  = @partner.contacts
+    @partner_contacts = @partner.contacts
   end
 
   def create
     @performance = Performance.find(params[:performance_id])
-    @performance_contact = current_user.performance_contacts.new(performance_contact_params.merge(performance_id: @performance.id))
+    @performance_contact = current_user.performance_contacts.new(
+      performance_contact_params.merge(
+        performance_id: @performance.id
+      )
+    )
 
     if @performance_contact.save
       redirect_to @performance

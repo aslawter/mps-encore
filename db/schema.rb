@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140809183238) do
   create_table "contacts", force: true do |t|
     t.integer  "organization_id",                null: false
     t.string   "organization_type",              null: false
+    t.integer  "user_id",                        null: false
     t.string   "first_name",        default: "", null: false
     t.string   "last_name",         default: "", null: false
     t.string   "title",             default: "", null: false
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140809183238) do
   add_index "customers", ["name"], name: "index_customers_on_name", unique: true, using: :btree
 
   create_table "partners", force: true do |t|
+    t.integer  "user_id",                   null: false
     t.string   "name",       default: "",   null: false
     t.string   "website",    default: "",   null: false
     t.boolean  "enabled",    default: true, null: false
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140809183238) do
   end
 
   add_index "partners", ["name"], name: "index_partners_on_name", unique: true, using: :btree
+  add_index "partners", ["user_id"], name: "index_partners_on_user_id", using: :btree
   add_index "partners", ["website"], name: "index_partners_on_website", unique: true, using: :btree
 
   create_table "performance_contacts", force: true do |t|
@@ -66,20 +69,21 @@ ActiveRecord::Schema.define(version: 20140809183238) do
   add_index "performance_contacts", ["user_id"], name: "index_performance_contacts_on_user_id", using: :btree
 
   create_table "performances", force: true do |t|
-    t.string   "title"
-    t.integer  "customer_id",                                              null: false
-    t.integer  "partner_id",                                               null: false
-    t.integer  "user_id",                                                  null: false
-    t.boolean  "prime",                                    default: false, null: false
-    t.string   "contract_type",                            default: "",    null: false
-    t.string   "contract_number",                          default: "",    null: false
-    t.decimal  "value",           precision: 10, scale: 2, default: 0.0,   null: false
-    t.date     "starts_on",                                                null: false
-    t.date     "ends_on",                                                  null: false
-    t.datetime "created_at",                                               null: false
-    t.datetime "updated_at",                                               null: false
+    t.string   "title",                                                     null: false
+    t.integer  "customer_id",                                               null: false
+    t.integer  "partner_id",                                                null: false
+    t.integer  "user_id",                                                   null: false
+    t.boolean  "prime_contractor",                          default: false, null: false
+    t.string   "contract_type",                             default: "",    null: false
+    t.string   "contract_number",                           default: "",    null: false
+    t.decimal  "value",            precision: 10, scale: 2, default: 0.0,   null: false
+    t.date     "starts_on",                                                 null: false
+    t.date     "ends_on",                                                   null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
   end
 
+  add_index "performances", ["contract_number"], name: "index_performances_on_contract_number", unique: true, using: :btree
   add_index "performances", ["customer_id"], name: "index_performances_on_customer_id", using: :btree
   add_index "performances", ["partner_id"], name: "index_performances_on_partner_id", using: :btree
   add_index "performances", ["user_id"], name: "index_performances_on_user_id", using: :btree

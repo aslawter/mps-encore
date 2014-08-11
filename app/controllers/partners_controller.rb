@@ -11,7 +11,7 @@ class PartnersController < ApplicationController
   end
 
   def create
-    @partner = Partner.new(partner_params)
+    @partner = current_user.partners.new(partner_params)
 
     if @partner.save
       redirect_to :partners

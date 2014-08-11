@@ -8,7 +8,7 @@ class Performance < ActiveRecord::Base
   belongs_to :partner
   belongs_to :user
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
   validates :contract_number, presence: true, uniqueness: true
   validates :starts_on, presence: true
   validates :ends_on, presence: true

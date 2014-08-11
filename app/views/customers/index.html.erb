@@ -24,6 +24,6 @@
 <p>This list is maintained and updated by the site administrator.</p>
 <ul>
   <% @customers.each do |customer| %>
-    <li><%= link_to customer.name, customer %></li>
+    <li><%= link_to customer.name, customer %> (<%= customer.performances.count %> Performances)</li>
   <% end %>
 <ul>

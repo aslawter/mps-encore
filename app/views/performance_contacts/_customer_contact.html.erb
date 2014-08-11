@@ -1,11 +1,12 @@
 <div>
   <%= form_for [@performance, @performance_contact] do |form| %>
+    <%= render "error_messages", target: @performance_contact %>
     <div>
-      <%= form.label :contact_id %>
+      <%= form.label :contact_id, "Customer name:" %>
       <%= form.collection_select(:contact_id, @customer_contacts, :id, :full_name, include_blank: "Select One") %>
     </div>
     <div>
-      <%= form.label :role, "Contract Role" %>
+      <%= form.label :role, "Role on Contract" %>
       <%= form.select :role, PerformanceContact::CUSTOMER_ROLE, include_blank: "Select One" %>
     <div>
       <%= form.submit :submit %>

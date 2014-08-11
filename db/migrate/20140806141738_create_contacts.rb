@@ -3,6 +3,7 @@ class CreateContacts < ActiveRecord::Migration
     create_table :contacts do |t|
       t.integer :organization_id, null: false
       t.string :organization_type, null: false
+      t.integer :user_id, null: false
       t.string :first_name, null: false, default: ""
       t.string :last_name, null: false, default: ""
       t.string :title, null: false, default: ""
@@ -13,6 +14,6 @@ class CreateContacts < ActiveRecord::Migration
     end
 
     add_index :contacts, [:email], unique: true
-    add_index :contacts, [:organization_id, :organization_type], unique: true
+    add_index :contacts, [:organization_id, :organization_type]
   end
 end

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :performances
   has_many :performance_contacts
+  has_many :contacts, dependent: :destroy
 
   def self.newest_first
     order(created_at: :desc)

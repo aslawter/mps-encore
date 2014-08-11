@@ -6,11 +6,8 @@ class PerformanceContact < ActiveRecord::Base
   belongs_to :performance
   belongs_to :user
 
-  def period_start
-    starts_on.to_formatted_s(:long)
-  end
-
-  def period_end
-    ends_on.to_formatted_s(:long)
-  end
+  validates :contact_id, presence: true
+  validates :role, presence: true
+  validates :performance, presence: true
+  validates :user, presence: true
 end
