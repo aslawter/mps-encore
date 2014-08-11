@@ -33,7 +33,7 @@
       <%= form.radio_button :prime_contractor, false %><%= form.label :prime_contractor, "No" %>
     </div>
     <div>
-     <%= form.label :partner_id, "Partner Company" %>
+      <%= form.label :partner_id, "Partner Company" %>
      <%= form.collection_select(:partner_id, @partners, :id, :name, include_blank: "Select One") %>
     </div>
     <div>

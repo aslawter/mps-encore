@@ -2,7 +2,7 @@
   <%= form_for [@performance, @performance_contact] do |form| %>
     <div>
       <%= form.label :contact_id, "Partner Name:" %>
-      <%= form.collection_select(:contact_id, @partner_contacts, :id, :full_name, include_blank: "Select One") %>
+      <%= form.collection_select(:contact_id, @partner.contacts, :id, :full_name, include_blank: "Select One") %>
     </div>
     <div>
       <%= form.label :role, "Role on Contract" %>

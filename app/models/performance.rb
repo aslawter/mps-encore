@@ -12,17 +12,18 @@ class Performance < ActiveRecord::Base
   validates :contract_number, presence: true, uniqueness: true
   validates :starts_on, presence: true
   validates :ends_on, presence: true
-  validates :contract_type, presence: true
+  validates :contract_type, presence: true, 
+    inclusion: {in: CONTRACT_TYPE, message: "%{value} is not a valid contract type"}
   validates :value, presence: true
   validates :partner_id, presence: true
   validates :user, presence: true
 
   def customer_references
-    contacts.where(organization_type: "Customer")
+    contacts.customer
   end
 
   def partner_references
-    contacts.where(organization_type: "Partner")
+    contacts.partner
   end
 
   def period_start

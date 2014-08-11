@@ -4,8 +4,6 @@ class PerformanceContactsController < ApplicationController
     @performance = Performance.find(params[:performance_id])
     @customer = @performance.customer
     @partner = @performance.partner
-    @customer_contacts = @customer.contacts
-    @partner_contacts = @partner.contacts
   end
 
   def create
@@ -19,6 +17,8 @@ class PerformanceContactsController < ApplicationController
     if @performance_contact.save
       redirect_to @performance
     else
+      @partner = @performance.partner
+      @customer = @performance.customer
       render :new
     end
   end

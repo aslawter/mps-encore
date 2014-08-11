@@ -3,7 +3,7 @@
     <%= render "error_messages", target: @performance_contact %>
     <div>
       <%= form.label :contact_id, "Customer name:" %>
-      <%= form.collection_select(:contact_id, @customer_contacts, :id, :full_name, include_blank: "Select One") %>
+      <%= form.collection_select(:contact_id, @customer.contacts, :id, :full_name, include_blank: "Select One") %>
     </div>
     <div>
       <%= form.label :role, "Role on Contract" %>

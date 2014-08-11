@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140809183238) do
   add_index "contacts", ["organization_id", "organization_type"], name: "index_contacts_on_organization_id_and_organization_type", using: :btree
 
   create_table "customers", force: true do |t|
+    t.string   "user_id",                   null: false
     t.string   "name",       default: "",   null: false
     t.boolean  "federal",    default: true, null: false
     t.datetime "created_at",                null: false
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140809183238) do
   end
 
   add_index "customers", ["name"], name: "index_customers_on_name", unique: true, using: :btree
+  add_index "customers", ["user_id"], name: "index_customers_on_user_id", using: :btree
 
   create_table "partners", force: true do |t|
     t.integer  "user_id",                   null: false
