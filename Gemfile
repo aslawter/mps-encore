@@ -7,6 +7,11 @@ gem 'rails', '4.1.1'
 gem 'pg'
 # Use SCSS for stylesheets
 
+gem 'bourbon'
+# mixin library for SaSS
+
+gem 'neat'
+# grid framework for bourbon
 gem 'monban-generators'
 #for user authentication
 gem 'sass-rails', '~> 4.0.3'
