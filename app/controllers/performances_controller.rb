@@ -23,6 +23,22 @@ class PerformancesController < ApplicationController
     @partner_contacts = @performance.partner_references
   end
 
+  def edit
+    @performance = Performance.find(params[:id])
+    @customer = @performance.customer
+    @partner = @performance.partner
+    @partners = Partner.all
+  end
+
+  def update
+    @performance = Performance.find(params[:id])
+    if @performance.update(performance_params)
+      redirect_to @performance
+    else
+      render :edit
+    end
+  end
+
   private
 
   def performance_params

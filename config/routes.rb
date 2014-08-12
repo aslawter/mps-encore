@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   resources :contacts, only: [:index, :show]
   resources :customers, only: [:new, :create, :show, :index] do
     resources :contacts, only: [:new, :create]
-    resources :performances, only: [:new, :create]
+    resources :performances, only: [:new, :create, :update]
   end
 
-  resources :performances, only: [:show] do
+  resources :performances, only: [:show, :edit] do
     resources :performance_contacts, only: [:new, :create]
   end
 

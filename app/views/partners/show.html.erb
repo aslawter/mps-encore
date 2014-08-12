@@ -1,7 +1,10 @@
 <h2><%= @partner.name %> Page</h2>
 
-<%= link_to "Create a new contact", [:new, @partner, :contact] %>
+<h3>Performance History</h3>
+
+<%= render "performances" %>
 
 <h3>Contacts</h3>
+<%= link_to "Create a new contact", [:new, @partner, :contact] %>
 
-<%= render 'partner_contacts' %>
+<%= render "contacts_highlights" %>

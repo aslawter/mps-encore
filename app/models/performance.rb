@@ -23,11 +23,11 @@ class Performance < ActiveRecord::Base
   end
 
   def customer_references
-    contacts.customer
+    contacts.customers
   end
 
   def partner_references
-    contacts.partner
+    contacts.partners
   end
 
   def period_start

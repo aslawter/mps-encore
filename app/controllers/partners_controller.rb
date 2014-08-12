@@ -3,6 +3,7 @@ class PartnersController < ApplicationController
     @partner = Partner.find(params[:id]) 
     @contact = Contact.new
     @contacts = @partner.contacts
+    @performances = @partner.performances
   end
 
   def index

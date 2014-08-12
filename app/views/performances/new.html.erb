@@ -1,43 +1,5 @@
 <h2>New Past Performance for <%= @customer.name %></h2>
 <p>Use this form to create a new performance summary for a contract with <%= @customer.name %>.</p>
 </div>
-<%= form_for [@customer, @performance]  do |form| %>
-  <%= render "error_messages", target: @performance %>
-    <div>
-      <%= form.label :title, "Contract Title" %>
-      <%= form.text_field :title, placeholder: "Official Title" %>
-    </div>
-    <div>
-      <%= form.label :contract_number%>
-      <%= form.text_field :contract_number, placeholder: "Official  Number" %>
-    </div>
-    <div>
-      <%= form.label :starts_on, "Start Date"%>
-      <%= form.date_field :starts_on %>
-    </div>
-    <div>
-      <%= form.label :ends_on, "End Date"%>
-      <%= form.date_field :ends_on %>
-    </div>
-    <div>
-      <%= form.label :contract_type, "Contract Type" %>
-      <%= form.select :contract_type, Performance::CONTRACT_TYPE, include_blank: "Select One" %>
-    </div>
-    <div>
-      <%= form.label :value, "Contract Value $" %>
-      <%= form.text_field :value %>
-    </div>
-    <div>
-      <p>Is this a prime contract?</p>
-      <%= form.radio_button :prime_contractor, true %><%= form.label :prime_contractor, "Yes" %>
-      <%= form.radio_button :prime_contractor, false %><%= form.label :prime_contractor, "No" %>
-    </div>
-    <div>
-      <%= form.label :partner_id, "Partner Company" %>
-     <%= form.collection_select(:partner_id, @partners, :id, :name, include_blank: "Select One") %>
-    </div>
-    <div>
-      <%= form.submit :submit %>
-    </div>
-  <% end %>
+<%= render "performance_form" %>
 </div>

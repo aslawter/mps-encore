@@ -1,23 +1,16 @@
 <h2><%= @customer.name %> Page</h2>
 
+<h3>Performances</h3>
+
 <div>
   <%= link_to "Add a new Past Performance", [:new, @customer, :performance] %>
 </div>
 
-<%= link_to "Add a new customer contact", [:new, @customer, :contact] %>
+<%= render "performances" %>
 
 <h3>Customer Contacts</h3>
-
-<%= render "customer_contact" %>
-
-<h3>Past Performances with <%= @customer.name %></h3>
-
 <div>
-  <ol>
-    <% @performances.each do |performance| %>
-      <li>Performance name: <%= link_to performance.title, performance %> -
-        Performance End: <%= performance.ends_on.to_formatted_s(:long_ordinal) %> -
-        Contract Value: <%= number_to_currency(performance.value) %></li>
-    <% end %>
-  </ol>
+  <%= link_to "Add a new customer contact", [:new, @customer, :contact] %>
 </div>
+
+<%= render "contacts_highlights" %>

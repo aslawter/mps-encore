@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Contract Title</th>
+    <th>Period of Performance</th>
+    <th>Value</th>
+    <th>Partner</th>
+  </tr>
+    <% @performances.each do |performance| %>
+      <tr>
+        <td><%= link_to performance.title, performance %></td>
+        <td>
+          <%= performance.starts_on.to_formatted_s(:rfc822) %> -
+          <%= performance.ends_on.to_formatted_s(:rfc822) %>
+        </td>
+        <td><%= number_to_currency(performance.value) %></td>
+        <td><%= link_to performance.partner.name, performance.partner %></td>
+      </tr>
+    <% end %>
+</table>

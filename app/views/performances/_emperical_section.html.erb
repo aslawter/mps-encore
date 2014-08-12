@@ -2,10 +2,11 @@
   <table style="width:500px">
   <tr>
     <th>Past Performance Summary</th>
+    <th><%= link_to "Edit summary", [:edit, @customer, @performance] %> </th>
   </tr>
   <tr>
     <td>Customer</td>
-    <td><%= @performance.customer.name %></td>
+    <td><%= link_to @performance.customer.name, @performance.customer %></td>
   </tr>
   <tr>
     <td>Contract Number</td>
@@ -41,7 +42,7 @@
         Prime Company
       <% end %>
     </td>
-    <td><%= @performance.partner.name %></td>
+    <td><%= link_to @performance.partner.name, @performance.partner %></td>
   </tr>
   </table>
 </div>
