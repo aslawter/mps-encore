@@ -8,7 +8,7 @@
         <%= form.label :name, "Customer Name" %>
         <%= form.text_field :name %>
       </div>
-      <div>
+      <div class="form-yes-no">
         <p>Is this a federal customer?</p>
         <%= form.radio_button :federal, true %><%= form.label :federal, "Yes" %>
         <%= form.radio_button :federal, false %><%= form.label :federal, "No" %>

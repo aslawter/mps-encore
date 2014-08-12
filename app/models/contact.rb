@@ -14,11 +14,11 @@ class Contact < ActiveRecord::Base
   validates :fax, presence: true, length: {is: 10}
 
 
-  def self.customer
+  def self.customers
     where(organization_type: "Customer")
   end
 
-  def self.partner
+  def self.partners
     where(organization_type: "Partner")
   end
 

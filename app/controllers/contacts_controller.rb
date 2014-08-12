@@ -1,9 +1,4 @@
 class ContactsController < ApplicationController
-  def index
-    @customer_contacts = Contact.customer
-    @partner_contacts = Contact.partner
-  end
-
   def new
     @organization = find_organization
     @contact = Contact.new
@@ -18,6 +13,15 @@ class ContactsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def index
+    @customer_contacts = Contact.customers
+    @partner_contacts = Contact.partners
+  end
+
+  def show
+    @contact = Contact.find(params[:id])
   end
 
   private

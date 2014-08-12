@@ -1,0 +1,15 @@
+<table class="related-performances">
+  <caption>Related Contracts</caption>
+  <tr>
+    <th>Contract Name</th>
+    <th>Customer</th>
+    <th>Role</th>
+  </tr>
+  <tr>
+    <% @contact.performances.each do |performance| %>
+      <td><%= link_to performance.title, performance %></td>
+      <td><%= performance.customer.name %></td>
+      <td><%= performance.role_for(@contact) %></td>
+    <% end %>
+  </tr>
+</table>

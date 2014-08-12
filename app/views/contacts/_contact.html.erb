@@ -1,0 +1,27 @@
+<table>
+  <caption><%= @contact.full_name %></caption>
+  <tr>
+    <th>Contact Data for <%= @contact.full_name %></th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td>Organization</td>
+    <td><%= @contact.organization.name %></td>
+  </tr>
+  <tr>
+    <td>Title</td>
+    <td><%= @contact.title %></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= @contact.email %></td>
+  </tr>
+  <tr>
+    <td>Phone Number</td>
+    <td><%= @contact.phone %></td>
+  </tr>
+  <tr>
+    <td>Fax Number</td>
+    <td><%= @contact.fax %></td>
+  </tr>
+</table>

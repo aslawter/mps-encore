@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :pending_users, only: [:show]
   end
 
-  resources :contacts, only: [:index]
+  resources :contacts, only: [:index, :show]
   resources :customers, only: [:new, :create, :show, :index] do
     resources :contacts, only: [:new, :create]
     resources :performances, only: [:new, :create]

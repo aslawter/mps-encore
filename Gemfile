@@ -8,10 +8,8 @@ gem 'pg'
 # Use SCSS for stylesheets
 
 gem 'bourbon'
-# mixin library for SaSS
-
 gem 'neat'
-# grid framework for bourbon
+gem 'font-awesome-sass'
 gem 'monban-generators'
 #for user authentication
 gem 'sass-rails', '~> 4.0.3'

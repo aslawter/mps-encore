@@ -1,0 +1,8 @@
+<h3>Contact page</h3>
+
+<%= render "contact" %>
+<% if @contact.performances.any?%>
+  <%= render "related_performances" %>
+<% else %>
+  <p>This contact is not associated with any performances</p>
+<% end %>
