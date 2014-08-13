@@ -1,0 +1,52 @@
+<h3>Create new solicitation</h3>
+
+<%= form_for [@solicitation]  do |form| %>
+  <%= render "error_messages", target: @solicitation %>
+    <div>
+      <%= form.label :title, "Solicitation Title" %>
+      <%= form.text_field :title %>
+    </div>
+    <div>
+      <%= form.label :description %>
+      <%= form.text_area :description, placeholder: "Enter a short description of the work"  %>
+    </div>
+    <div>
+      <%= form.label :office %>
+      <%= form.text_field :office, placeholder: "Enter the name of the sub office for whom the work is to be performed" %>
+    </div>
+    <div>
+      <%= form.label :solicitation_number %>
+      <%= form.text_field :solicitation_number, placeholder: "Official Number" %>
+    </div>
+    <div>
+      <%= form.label :deadline, "Due Date"%>
+      <%= form.date_field :deadline %>
+    </div>
+    <div>
+    <div>
+      <p>Is this a prime response?</p>
+      <%= form.radio_button :prime_contractor, true %><%= form.label :prime_contractor, "Yes" %>
+      <%= form.radio_button :prime_contractor, false %><%= form.label :prime_contractor, "No" %>
+    </div>
+    <div>
+      <p>Was this submitted?</p>
+      <%= form.radio_button :submitted, true %><%= form.label :submitted, "Yes" %>
+      <%= form.radio_button :submitted, false %><%= form.label :submitted, "No" %>
+    </div>
+    <div>
+      <p>Did we win?</p>
+      <%= form.radio_button :won, true %><%= form.label :won, "Yes" %>
+      <%= form.radio_button :won, false %><%= form.label :won, "No" %>
+    </div>
+    <div>
+      <%= form.label :customer_id, "Customer Name" %>
+     <%= form.collection_select(:customer_id, @customers, :id, :name, include_blank: "Select One") %>
+    </div>
+    <div>
+      <%= form.label :partner_id, "Partner Company" %>
+     <%= form.collection_select(:partner_id, @partners, :id, :name, include_blank: "Select One") %>
+    </div>
+    <div>
+      <%= form.submit :submit %>
+    </div>
+  <% end %>

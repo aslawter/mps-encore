@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813183010) do
+ActiveRecord::Schema.define(version: 20140813203525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,26 @@ ActiveRecord::Schema.define(version: 20140813183010) do
   add_index "performances", ["customer_id"], name: "index_performances_on_customer_id", using: :btree
   add_index "performances", ["partner_id"], name: "index_performances_on_partner_id", using: :btree
   add_index "performances", ["user_id"], name: "index_performances_on_user_id", using: :btree
+
+  create_table "solicitations", force: true do |t|
+    t.integer  "customer_id",                         null: false
+    t.integer  "partner_id",                          null: false
+    t.string   "title",               default: "",    null: false
+    t.string   "description",         default: "",    null: false
+    t.string   "office",              default: "",    null: false
+    t.string   "solicitation_number", default: "",    null: false
+    t.datetime "deadline",                            null: false
+    t.boolean  "submitted",           default: false, null: false
+    t.boolean  "prime_contractor",    default: false, null: false
+    t.boolean  "won",                 default: false, null: false
+    t.integer  "updated_by_id",                       null: false
+    t.integer  "user_id",                             null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "solicitations", ["customer_id", "partner_id", "user_id"], name: "index_solicitations_on_customer_id_and_partner_id_and_user_id", using: :btree
+  add_index "solicitations", ["solicitation_number"], name: "index_solicitations_on_solicitation_number", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                           null: false
