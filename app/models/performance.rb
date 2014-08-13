@@ -7,6 +7,7 @@ class Performance < ActiveRecord::Base
   belongs_to :customer
   belongs_to :partner
   belongs_to :user
+  belongs_to :updated_by, class_name: "User"
 
   validates :title, presence: true
   validates :contract_number, presence: true, uniqueness: true

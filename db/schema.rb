@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140809183238) do
+ActiveRecord::Schema.define(version: 20140813183010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,29 +28,32 @@ ActiveRecord::Schema.define(version: 20140809183238) do
     t.string   "fax",               default: "", null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "updated_by_id",                  null: false
   end
 
   add_index "contacts", ["email"], name: "index_contacts_on_email", unique: true, using: :btree
   add_index "contacts", ["organization_id", "organization_type"], name: "index_contacts_on_organization_id_and_organization_type", using: :btree
 
   create_table "customers", force: true do |t|
-    t.string   "user_id",                   null: false
-    t.string   "name",       default: "",   null: false
-    t.boolean  "federal",    default: true, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "user_id",                      null: false
+    t.string   "name",          default: "",   null: false
+    t.boolean  "federal",       default: true, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "updated_by_id",                null: false
   end
 
   add_index "customers", ["name"], name: "index_customers_on_name", unique: true, using: :btree
   add_index "customers", ["user_id"], name: "index_customers_on_user_id", using: :btree
 
   create_table "partners", force: true do |t|
-    t.integer  "user_id",                   null: false
-    t.string   "name",       default: "",   null: false
-    t.string   "website",    default: "",   null: false
-    t.boolean  "enabled",    default: true, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "user_id",                      null: false
+    t.string   "name",          default: "",   null: false
+    t.string   "website",       default: "",   null: false
+    t.boolean  "enabled",       default: true, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "updated_by_id",                null: false
   end
 
   add_index "partners", ["name"], name: "index_partners_on_name", unique: true, using: :btree
@@ -64,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140809183238) do
     t.string   "role",           null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "updated_by_id",  null: false
   end
 
   add_index "performance_contacts", ["performance_id", "contact_id"], name: "index_performance_contacts_on_performance_id_and_contact_id", unique: true, using: :btree
@@ -83,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140809183238) do
     t.date     "ends_on",                                                   null: false
     t.datetime "created_at",                                                null: false
     t.datetime "updated_at",                                                null: false
+    t.integer  "updated_by_id",                                             null: false
   end
 
   add_index "performances", ["contract_number"], name: "index_performances_on_contract_number", unique: true, using: :btree

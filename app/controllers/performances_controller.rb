@@ -21,6 +21,7 @@ class PerformancesController < ApplicationController
     @performance = Performance.find(params[:id])
     @customer_contacts = @performance.customer_references
     @partner_contacts = @performance.partner_references
+    @updater = @performance.updated_by
   end
 
   def edit
@@ -31,9 +32,9 @@ class PerformancesController < ApplicationController
   end
 
   def update
-    @performance = Performance.find(params[:id])
-    if @performance.update(performance_params)
-      redirect_to @performance
+    performance = Performance.find(params[:id])
+    if performance.update(performance_params.merge(updated_by_id: current_user.id))
+      redirect_to performance
     else
       render :edit
     end
