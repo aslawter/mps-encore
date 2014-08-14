@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :solicitations, only: [:new, :create, :index, :show]
-    resources :opportunities, only: [:new, :create]
   resources :contacts, only: [:index, :show]
   resources :customers, only: [:new, :create, :show, :index] do
     resources :contacts, only: [:new, :create]
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :performances, only: [:show, :edit] do
     resources :performance_contacts, only: [:new, :create]
+    resources :opportunities, only: [:new, :create]
   end
 
   resources :partners, only: [:create, :index, :show] do

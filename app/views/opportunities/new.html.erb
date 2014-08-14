@@ -1,2 +1,13 @@
-<h3>Assign a performance to the <%=@opportunity.title %></h3>
-
+<h3>Assign a soliciation to the performance: <%= @performance.title %></h3>
+<div>
+  <%= form_for [@performance, @opportunity] do |form| %>
+    <%= render "error_messages", target: @opportunity %>
+    <div>
+      <%= form.label :solicitation, "Solicitation Title" %>
+      <%= form.collection_select :solicitation, @solicitations, :id, :title, include_blank: "Select One" %>
+    </div>
+    <div>
+      <%= form.submit :submit %>
+    </div>
+  <% end %>
+</div>

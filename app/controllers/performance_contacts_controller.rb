@@ -13,6 +13,7 @@ class PerformanceContactsController < ApplicationController
         performance_id: @performance.id
       )
     )
+    @performance_contact.updated_by_id = current_user.id
 
     if @performance_contact.save
       redirect_to @performance

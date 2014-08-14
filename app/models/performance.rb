@@ -18,6 +18,7 @@ class Performance < ActiveRecord::Base
   validates :value, presence: true
   validates :partner_id, presence: true
   validates :user, presence: true
+  validates :updated_by, presence: true
 
   def role_for(contact)
     performance_contacts.find_by(contact: contact).role

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :customers, dependent: :destroy
   has_many :partners, dependent: :destroy
   has_many :solicitations, dependent: :destroy
+  has_many :opportunities, dependent: :destroy
 
   def self.newest_first
     order(created_at: :desc)
