@@ -10,6 +10,5 @@ class Solicitation < ActiveRecord::Base
   belongs_to :user
   belongs_to :customer
   belongs_to :partner
-  belongs_to :updated_by, class: "User"
-
+  belongs_to :updated_by, class_name: "User"
 end

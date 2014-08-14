@@ -1,0 +1,43 @@
+<h3>Solicitation for <%= @solicitation.title %></h3>
+
+
+<div>
+  <table style="width:500px">
+  <tr>
+    <th>Solicitation Details</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Customer</td>
+    <td><%= link_to @solicitation.customer.name, @solicitation.customer %></td>
+  </tr>
+  <tr>
+    <td>Solicitation Number</td>
+    <td><%= @solicitation.solicitation_number %></td>
+  </tr>
+  <tr>
+    <td>Due Date </td>
+    <td><%= @solicitation.deadline.to_formatted_s(:long) %></td>
+  </tr>
+  <tr>
+    <td>Prime Contract?</td>
+    <td>
+      <% if @solicitation.prime_contractor %>
+        Yes
+      <% else %>
+        No
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <% if @solicitation.prime_contractor %>
+        Partner Company
+      <% else %>
+        Prime Company
+      <% end %>
+    </td>
+    <td><%= @solicitation.partner.name  %></td>
+  </tr>
+  </table>
+</div>

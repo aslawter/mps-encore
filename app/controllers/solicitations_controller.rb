@@ -6,8 +6,23 @@ class SolicitationsController < ApplicationController
   end
 
   def create
+    @solicitation = current_user.solicitations.new(
+      solicitation_params.merge(
+        updated_by: current_user
+        )
+      )
+
+    if @solicitation.save
+      redirect_to @solicitation
+    else
+      @customers = Customer.all
+      @partners = Partner.all
+      render :new
+    end
+  end
+
+  def show
     @solicitation = Solicitation.find(params[:id])
-    @solicitation = current_user.solicitations.new(solicitation_params)
   end
 
   private
