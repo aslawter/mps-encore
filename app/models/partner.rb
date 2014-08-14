@@ -1,6 +1,7 @@
 class Partner < ActiveRecord::Base
   has_many :contacts, as: :organization
   has_many :performances
+  has_many :solicitations
 
   belongs_to :user
 

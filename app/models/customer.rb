@@ -1,6 +1,7 @@
 class Customer < ActiveRecord::Base
   has_many :contacts, as: :organization
   has_many :performances, dependent: :destroy
+  has_many :solicitations, dependent: :destroy
 
   belongs_to :user
 

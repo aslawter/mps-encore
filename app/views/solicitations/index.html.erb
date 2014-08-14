@@ -1,0 +1,20 @@
+<h3>All Solicitations</h3>
+
+<%= link_to "Add a new solicitation", [:new, :solicitation] %>
+
+<% if @customers.any? %>
+  <ul>
+    <% @customers.each do |customer| %>
+      <li>
+      <strong><%= customer.name %></strong> | (<%= customer.solicitations.count %>)
+        <ol>
+          <% customer.solicitations.each do |solicitation| %>
+            <li><%= link_to solicitation.title, solicitation %> | Close Date: <%= solicitation.deadline.to_formatted_s(:long) %></li>
+          <% end %>
+        </ol>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+    There are no soliciations listed. See link above to add a solicitation.
+<% end %>

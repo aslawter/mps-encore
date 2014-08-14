@@ -21,6 +21,12 @@ class SolicitationsController < ApplicationController
     end
   end
 
+  def index
+    @solicitations = Solicitation.all
+    customer_ids = @solicitations.pluck(:customer_id)
+    @customers = Customer.where(id: customer_ids)
+  end
+
   def show
     @solicitation = Solicitation.find(params[:id])
   end
