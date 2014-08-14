@@ -3,6 +3,8 @@ class Performance < ActiveRecord::Base
 
   has_many :performance_contacts
   has_many :contacts, through: :performance_contacts
+  has_many :opportunities
+  has_many :solicitations, through: :opportunities
 
   belongs_to :customer
   belongs_to :partner

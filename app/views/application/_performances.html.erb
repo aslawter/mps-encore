@@ -1,17 +1,17 @@
 <table>
   <tr>
     <th>Contract Title</th>
+    <th>Customer</th>
     <th>Period of Performance</th>
     <th>Value</th>
-    <th>Customer</th>
   </tr>
     <% @performances.each do |performance| %>
       <tr>
         <td><%= link_to performance.title, performance %></td>
+        <td><%= link_to performance.customer.name, performance.customer %></td>
         <td><%= performance.starts_on.to_formatted_s(:rfc822) %> -
           <%= performance.ends_on.to_formatted_s(:rfc822) %></td>
         <td><%= number_to_currency(performance.value) %></td>
-        <td><%= link_to performance.customer.name, performance.customer %></td>
       </tr>
     <% end %>
 </table>

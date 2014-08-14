@@ -11,9 +11,10 @@ class PerformanceContactsController < ApplicationController
     @performance_contact = current_user.performance_contacts.new(
       performance_contact_params.merge(
         performance_id: @performance.id
+      ).merge(
+        updated_by_id: current_user.id
       )
     )
-    @performance_contact.updated_by_id = current_user.id
 
     if @performance_contact.save
       redirect_to @performance

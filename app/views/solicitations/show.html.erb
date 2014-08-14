@@ -40,3 +40,11 @@
   </tr>
   </table>
 </div>
+<div>
+  <% if @performances.any? %>
+    <h3>Performances designated for use with this solicitation:</h3>
+    <%= render "performances" %>
+  <% else %>
+    <h3>There are no performances associated with this solicitation</h3>
+  <% end %>
+</div>

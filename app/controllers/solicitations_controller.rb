@@ -9,8 +9,8 @@ class SolicitationsController < ApplicationController
     @solicitation = current_user.solicitations.new(
       solicitation_params.merge(
         updated_by: current_user
-        )
       )
+    )
 
     if @solicitation.save
       redirect_to @solicitation
@@ -29,6 +29,7 @@ class SolicitationsController < ApplicationController
 
   def show
     @solicitation = Solicitation.find(params[:id])
+    @performances = @solicitation.performances
   end
 
   private

@@ -18,7 +18,16 @@
 
 <%= render "customer_references" %>
 
-<h3>This performance is linked to the following solicitations</h3>
+<% if @performance.solicitations.any? %>
+  <h3>This performance is linked to the following solicitations:</h3>
+  <ul>
+    <% @performance.solicitations.each do |solicitation| %>
+      <li><%= link_to solicitation.title, solicitation %> || Customer: <%= solicitation.customer.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>This performance is not associated with any solicitations</h3>
+<% end %>
 <div>
-  <p>Add this performance to an existing <%= link_to "solicitation.", [:new, @performance, :opportunity] %></p>
+  <p>Associate this performance with a <%= link_to "solicitation.", [:new, @performance, :opportunity] %></p>
 </div>
