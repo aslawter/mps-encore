@@ -1,0 +1,16 @@
+<h3>All Performances</h3>
+
+Looking to create a new performance?  Navigate to the <%= link_to "customers page", [:customers] %> to add the performance there.
+
+<ul>
+  <% @customers.each do |customer| %>
+    <% if customer.performances.any? %>
+      <li>
+        <strong><%= customer.name %></strong> | (<%= customer.performances.count %>)
+        <li><%= render "performances", performances: customer.performances %></li>
+      </li>
+    <% else %>
+        There are no performances listed. See link above to add a performance.
+    <% end %>
+  <% end %>
+</ul>

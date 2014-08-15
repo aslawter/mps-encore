@@ -5,7 +5,7 @@
     <th>Period of Performance</th>
     <th>Value</th>
   </tr>
-    <% @performances.each do |performance| %>
+    <% performances.each do |performance| %>
       <tr>
         <td><%= link_to performance.title, performance %></td>
         <td><%= link_to performance.customer.name, performance.customer %></td>

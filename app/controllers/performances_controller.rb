@@ -1,4 +1,8 @@
 class PerformancesController < ApplicationController
+  def index
+    @customers = Customer.all
+  end
+
   def new
     @customer = Customer.find(params[:customer_id])
     @performance = Performance.new
@@ -7,7 +11,12 @@ class PerformancesController < ApplicationController
 
   def create
     @customer = Customer.find(params[:customer_id])
-    @performance = current_user.performances.new(performance_params.merge(customer: @customer))
+    @performance = current_user.performances.new(
+      performance_params.merge(
+        customer: @customer,
+        updated_by_id: current_user.id
+      )
+    )
 
     if @performance.save
       redirect_to @performance
