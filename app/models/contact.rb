@@ -13,7 +13,6 @@ class Contact < ActiveRecord::Base
   validates :phone, presence: true, length: {is: 10}
   validates :fax, presence: true, length: {is: 10}
 
-
   def self.customers
     where(organization_type: "Customer")
   end

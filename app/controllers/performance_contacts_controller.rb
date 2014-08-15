@@ -10,8 +10,7 @@ class PerformanceContactsController < ApplicationController
     @performance = Performance.find(params[:performance_id])
     @performance_contact = current_user.performance_contacts.new(
       performance_contact_params.merge(
-        performance_id: @performance.id
-      ).merge(
+        performance_id: @performance.id,
         updated_by_id: current_user.id
       )
     )

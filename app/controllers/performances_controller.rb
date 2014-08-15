@@ -1,5 +1,6 @@
 class PerformancesController < ApplicationController
   def index
+    @performances = Performance.all
     @customers = Customer.all
   end
 
