@@ -62,7 +62,8 @@ class PerformancesController < ApplicationController
         :contract_type,
         :value,
         :prime_contractor,
-        :partner_id
+        :partner_id,
+        :description
     )
   end
 end

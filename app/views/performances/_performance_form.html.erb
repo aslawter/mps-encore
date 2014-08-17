@@ -34,6 +34,10 @@
      <%= form.collection_select(:partner_id, @partners, :id, :name, include_blank: "Select One") %>
     </div>
     <div>
+      <%= form.label :description, "Description Summary" %>
+      <%= form.text_area :description, placeholder: "Enter high level description and main accomplishments here" %>
+    </div>
+    <div>
       <%= form.submit :submit %>
     </div>
   <% end %>
