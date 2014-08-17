@@ -1,12 +1,11 @@
-==Encore
+# Encore
 
 Manage, track, and tweak your corporate resume to wow customers, and snag your next performance.
 
-* Systematically approach the use of past performance documentation for bid and proposal use.
-* Find past performances easily.
-* Understand which examples of your corporate resume are frequently used, and how.
-* Systematically approach selection of your best work to use with future clients.
-* Keep customer contact information current, and easy to reference.
-* Manage version control for your past contracts.
-* See which contracts need to be updated and when.
-
+* Find past performances quickly and easily.
+* Systematically select examples of your best work for future clients.
+* Update customer and partner contact information in one place to replicate across all performances.  
+* Understand which examples of your corporate resume are often used, and where.
+* Map performances to soliciations.  Track which bids are successful.
+* Manage performance updates by identifying out of date, or non-conformant performance summaries.
+* See all of the work your company has performed, and for whom, all in one location.`

@@ -10,6 +10,7 @@ gem 'pg'
 gem 'bourbon'
 gem 'neat'
 gem 'font-awesome-sass'
+gem 'redcarpet'
 gem 'monban-generators'
 #for user authentication
 gem 'sass-rails', '~> 4.0.3'

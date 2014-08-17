@@ -23,7 +23,12 @@ class Performance < ActiveRecord::Base
   validates :updated_by, presence: true
 
   def contact_with_role(role_name)
-    performance_contacts.find_by(role: role_name).contact
+    performance_contact = performance_contacts.find_by(role: role_name)
+    if performance_contact
+      performance_contact.contact
+    else
+      NullContact.new
+    end
   end
 
   def role_for(contact)

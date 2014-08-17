@@ -32,6 +32,7 @@ class PerformancesController < ApplicationController
     @customer_contacts = @performance.customer_references
     @partner_contacts = @performance.partner_references
     @updater = @performance.updated_by
+    @null_contact = NullContact.new
   end
 
   def edit
