@@ -1,35 +1,31 @@
 <div class="references-container">
-  <div>
-    <%= link_to "Add a new reference", [:new, @performance, :performance_contact] %>
-  </div>
-
   <div class="customer-references">
     <h3>Customer References</h3>
     <table>
       <tr>
         <th></th>
-        <th>Supervisor/Manager | add/change</th>
-        <th>Contracting Officer Representative | add/change</th>
+        <th>Contracting Officer Representative | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
+        <th>Supervisor/Manager | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
       </tr>
       <tr>
         <td>Name</td>
-        <td><%= @performance.contact_with_role("Supervisor").full_name %></td>
         <td><%= @performance.contact_with_role("Contracting Officer Technical Representative").full_name %></td>
+        <td><%= @performance.contact_with_role("Supervisor").full_name %></td>
       </tr>
       <tr>
         <td>Email</td>
-        <td><%= @performance.contact_with_role("Supervisor").email %></td>
         <td><%= @performance.contact_with_role("Contracting Officer Technical Representative").email %></td>
+        <td><%= @performance.contact_with_role("Supervisor").email %></td>
       </tr>
       <tr>
         <td>Phone</td>
-        <td><%= @performance.contact_with_role("Supervisor").phone %></td>
         <td><%= @performance.contact_with_role("Contracting Officer Technical Representative").phone %></td>
+        <td><%= @performance.contact_with_role("Supervisor").phone %></td>
       </tr>
       <tr>
         <td>Fax</td>
-        <td><%= @performance.contact_with_role("Supervisor").fax %></td>
         <td><%= @performance.contact_with_role("Contracting Officer Technical Representative").fax %></td>
+        <td><%= @performance.contact_with_role("Supervisor").fax %></td>
       </tr>
     </table>
   </div>
@@ -43,8 +39,8 @@
     <table>
       <tr>
         <th></th>
-        <th>Company Representative | add/change</th>
-        <th>Other | add/change</th>
+        <th>Company Representative | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
+        <th>Other | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
       </tr>
       <tr>
         <td>Name</td>

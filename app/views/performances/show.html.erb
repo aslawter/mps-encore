@@ -13,6 +13,8 @@
     Updated on: <%= @performance.updated_at.to_formatted_s(:long) %>
   </p>
 </div>
+<div class="performance-download">
+  <%= button_to "Download to MS Word", [@performance, :download] %>
 
 <%= render "emperical_section" %>
 

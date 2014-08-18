@@ -7,6 +7,7 @@ class Solicitation < ActiveRecord::Base
   belongs_to :partner
   belongs_to :updated_by, class_name: "User"
 
+  validates :updated_by, presence: true
   validates :title, presence: true
   validates :description, presence: true
   validates :office, presence: true

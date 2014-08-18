@@ -11,7 +11,7 @@ class PerformanceContactsController < ApplicationController
     @performance_contact = current_user.performance_contacts.new(
       performance_contact_params.merge(
         performance_id: @performance.id,
-        updated_by_id: current_user.id
+        updated_by: current_user
       )
     )
 

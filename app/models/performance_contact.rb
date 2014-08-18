@@ -1,11 +1,12 @@
 class PerformanceContact < ActiveRecord::Base
-  CUSTOMER_ROLE = ["Supervisor", "Contracting Officer Technical Representative", "Other"]
+  CUSTOMER_ROLE = ["Contracting Officer Technical Representative", "Supervisor", "Other"]
   PARTNER_ROLE = ["Company Representative", "Other"]
   ALL_ROLES = CUSTOMER_ROLE + PARTNER_ROLE
 
   belongs_to :contact
   belongs_to :performance
   belongs_to :user
+  belongs_to :updated_by, class_name: "User"
 
   validates :contact_id, presence: true
   validates :role, presence: true, 
@@ -13,4 +14,5 @@ class PerformanceContact < ActiveRecord::Base
 
   validates :performance, presence: true
   validates :user, presence: true
+  validates :updated_by, presence: true
 end
