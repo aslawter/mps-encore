@@ -19,13 +19,13 @@
       </tr>
       <tr>
         <td>Phone</td>
-        <td><%= @performance.contact_with_role("Contracting Officer Technical Representative").phone %></td>
-        <td><%= @performance.contact_with_role("Supervisor").phone %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Contracting Officer Technical Representative").phone) %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Supervisor").phone) %></td>
       </tr>
       <tr>
         <td>Fax</td>
-        <td><%= @performance.contact_with_role("Contracting Officer Technical Representative").fax %></td>
-        <td><%= @performance.contact_with_role("Supervisor").fax %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Contracting Officer Technical Representative").fax) %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Supervisor").fax) %></td>
       </tr>
     </table>
   </div>
@@ -54,13 +54,13 @@
       </tr>
       <tr>
         <td>Phone</td>
-        <td><%= @performance.contact_with_role("Company Representative").phone %></td>
-        <td><%= @performance.contact_with_role("Other").phone %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Company Representative").phone) %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Other").phone) %></td>
       </tr>
       <tr>
         <td>Fax</td>
-        <td><%= @performance.contact_with_role("Company Representative").fax %></td>
-        <td><%= @performance.contact_with_role("Other").fax %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Company Representative").fax) %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Other").fax) %></td>
       </tr>
     </table>
   </div>

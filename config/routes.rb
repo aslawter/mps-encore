@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :performances, only: [:show, :edit, :index] do
     resources :performance_contacts, only: [:new, :create]
     resources :opportunities, only: [:new, :create]
-    resource :download, only: [:create]
+    resource :performance_download, only: [:create]
   end
 
   resources :partners, only: [:create, :index, :show] do

@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20140817142639) do
     t.datetime "created_at",                                                null: false
     t.datetime "updated_at",                                                null: false
     t.integer  "updated_by_id",                                             null: false
-    t.text     "description",                               default: ""
+    t.text     "description",                               default: "",    null: false
   end
 
   add_index "performances", ["contract_number"], name: "index_performances_on_contract_number", unique: true, using: :btree

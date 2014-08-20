@@ -1,6 +1,7 @@
 class WordDocumentWriter
-  def initialize(content)
+  def initialize(content, id)
     @content = content
+    @id = id
   end
 
   def write
@@ -9,7 +10,7 @@ class WordDocumentWriter
   end
 
   def zip
-    zipfile_name = Rails.root.join("tmp/performance.docx")
+    zipfile_name = Rails.root.join("tmp/performance-#{@id}.docx")
 
     Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
       Dir.glob(Rails.root.join("lib/assets/word_document/**/*")).each do |full_path|
