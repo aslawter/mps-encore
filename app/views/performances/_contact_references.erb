@@ -5,26 +5,26 @@
       <tr>
         <th></th>
         <th>Contracting Officer Representative | <%= link_to "add/change", new_performance_performance_contact_path(@performance, role: "Contracting Officer Representative") %>
-        <th>Supervisor/Manager | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
+        <th>Supervisor/Manager | <%= link_to "add/change", new_performance_performance_contact_path(@performance, role: "Supervisor") %></th>
       </tr>
       <tr>
         <td>Name</td>
-        <td><%= @performance.contact_with_role("Contracting Officer Technical Representative").full_name %></td>
+        <td><%= @performance.contact_with_role("Contracting Officer Representative").full_name %></td>
         <td><%= @performance.contact_with_role("Supervisor").full_name %></td>
       </tr>
       <tr>
         <td>Email</td>
-        <td><%= @performance.contact_with_role("Contracting Officer Technical Representative").email %></td>
+        <td><%= @performance.contact_with_role("Contracting Officer Representative").email %></td>
         <td><%= @performance.contact_with_role("Supervisor").email %></td>
       </tr>
       <tr>
         <td>Phone</td>
-        <td><%= number_to_phone(@performance.contact_with_role("Contracting Officer Technical Representative").phone) %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Contracting Officer Representative").phone) %></td>
         <td><%= number_to_phone(@performance.contact_with_role("Supervisor").phone) %></td>
       </tr>
       <tr>
         <td>Fax</td>
-        <td><%= number_to_phone(@performance.contact_with_role("Contracting Officer Technical Representative").fax) %></td>
+        <td><%= number_to_phone(@performance.contact_with_role("Contracting Officer Representative").fax) %></td>
         <td><%= number_to_phone(@performance.contact_with_role("Supervisor").fax) %></td>
       </tr>
     </table>
@@ -39,28 +39,28 @@
     <table>
       <tr>
         <th></th>
-        <th>Company Representative | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
-        <th>Other | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
+        <th>Contract Lead | <%= link_to "add/change", new_performance_performance_contact_path(@performance, role: "Contract Lead") %></th>
+        <th>Company Representative | <%= link_to "add/change", new_performance_performance_contact_path(@performance, role: "Company Representative") %></th>
       </tr>
       <tr>
         <td>Name</td>
+        <td><%= @performance.contact_with_role("Contract Lead").full_name %></td>
         <td><%= @performance.contact_with_role("Company Representative").full_name %></td>
-        <td><%= @performance.contact_with_role("Other").full_name %></td>
       </tr>
       <tr>
         <td>Email</td>
+        <td><%= @performance.contact_with_role("Contract Lead").email %></td>
         <td><%= @performance.contact_with_role("Company Representative").email %></td>
-        <td><%= @performance.contact_with_role("Other").email %></td>
       </tr>
       <tr>
         <td>Phone</td>
+        <td><%= number_to_phone(@performance.contact_with_role("Contract Lead").phone) %></td>
         <td><%= number_to_phone(@performance.contact_with_role("Company Representative").phone) %></td>
-        <td><%= number_to_phone(@performance.contact_with_role("Other").phone) %></td>
       </tr>
       <tr>
         <td>Fax</td>
+        <td><%= number_to_phone(@performance.contact_with_role("Contract Lead").fax) %></td>
         <td><%= number_to_phone(@performance.contact_with_role("Company Representative").fax) %></td>
-        <td><%= number_to_phone(@performance.contact_with_role("Other").fax) %></td>
       </tr>
     </table>
   </div>

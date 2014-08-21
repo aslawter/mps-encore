@@ -1,3 +1,4 @@
+<h3>Add a Customer Contact from <%= @customer.name %></h3>
 <div>
   <%= form_for [@performance, @performance_contact] do |form| %>
     <%= render "error_messages", target: @performance_contact %>
@@ -14,3 +15,4 @@
     </div>
 <% end %>
 </div>
+<p>Don't see the customer contact you're looking for? <%= link_to "Add a customer contact here", [:new, @customer, :contact] %>

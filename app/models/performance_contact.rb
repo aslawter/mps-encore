@@ -1,6 +1,6 @@
 class PerformanceContact < ActiveRecord::Base
-  CUSTOMER_ROLE = ["Contracting Officer Representative", "Supervisor", "Other"]
-  PARTNER_ROLE = ["Company Representative", "Other"]
+  CUSTOMER_ROLE = ["Contracting Officer Representative", "Supervisor"]
+  PARTNER_ROLE = ["Contract Lead", "Company Representative"]
   ALL_ROLES = CUSTOMER_ROLE + PARTNER_ROLE
 
   belongs_to :contact
