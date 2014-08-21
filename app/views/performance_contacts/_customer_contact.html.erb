@@ -1,18 +1,19 @@
-<h3>Add a Customer Contact from <%= @customer.name %></h3>
+<h3>Customer Contact from <%= customer.name %></h3>
 <div>
   <%= form_for [@performance, @performance_contact] do |form| %>
     <%= render "error_messages", target: @performance_contact %>
     <div>
       <%= form.label :contact_id, "Customer name:" %>
-      <%= form.collection_select(:contact_id, @customer.contacts, :id, :full_name, include_blank: "Select One") %>
+      <%= form.collection_select(:contact_id, customer.contacts, :id, :full_name, include_blank: "Select One") %>
     </div>
     <div>
       <%= form.label :role, "Role on Contract" %>
       <%= form.hidden_field :role, value: role %>
       <%= role %>
+    </div>
     <div>
       <%= form.submit :submit %>
     </div>
 <% end %>
 </div>
-<p>Don't see the customer contact you're looking for? <%= link_to "Add a customer contact here", [:new, @customer, :contact] %>
+<p>Don't see the customer contact you're looking for? <%= link_to "Add a customer contact here", [:new, customer, :contact] %>

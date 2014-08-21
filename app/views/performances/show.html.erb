@@ -19,6 +19,9 @@
 <%= render "emperical_section" %>
 
 <%= render "contact_references" %>
+<div>
+  <p>Associate this performance with a <%= link_to "solicitation.", [:new, @performance, :opportunity] %></p>
+</div>
 
 <% if @performance.solicitations.any? %>
   <h3>This performance is linked to the following solicitations:</h3>
@@ -30,6 +33,3 @@
 <% else %>
   <h3>This performance is not associated with any solicitations</h3>
 <% end %>
-<div>
-  <p>Associate this performance with a <%= link_to "solicitation.", [:new, @performance, :opportunity] %></p>
-</div>

@@ -29,8 +29,6 @@ class PerformancesController < ApplicationController
 
   def show
     @performance = Performance.find(params[:id])
-    @customer_contacts = @performance.customer_references
-    @partner_contacts = @performance.partner_references
     @updater = @performance.updated_by
   end
 

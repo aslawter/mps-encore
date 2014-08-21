@@ -12,7 +12,11 @@ class PartnersController < ApplicationController
   end
 
   def create
-    @partner = current_user.partners.new(partner_params)
+    @partner = current_user.partners.new(
+      partner_params.merge(
+        updated_by_id: current_user.id
+      )
+    )
 
     if @partner.save
       redirect_to :partners

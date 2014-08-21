@@ -1,15 +1,19 @@
+<h3>Partner Contact from <%= partner.name %></h3>
 <div>
   <%= form_for [@performance, @performance_contact] do |form| %>
+    <%= render "error_messages", target: @performance_contact %>
     <div>
       <%= form.label :contact_id, "Partner Name:" %>
-      <%= form.collection_select(:contact_id, @partner.contacts, :id, :full_name, include_blank: "Select One") %>
+      <%= form.collection_select(:contact_id, partner.contacts, :id, :full_name, include_blank: "Select One") %>
     </div>
     <div>
       <%= form.label :role, "Role on Contract" %>
-      <%= form.select :role, PerformanceContact::PARTNER_ROLE, include_blank: "Select One" %>
-    <div>
+      <%= form.hidden_field :role, value: role %>
+      <%= role %>
+    </div>
     <div>
       <%= form.submit :submit %>
     </div>
 <% end %>
 </div>
+<p>Don't see the partner contact you're looking for? <%= link_to "Add a partner contact here", [:new, partner, :contact] %>

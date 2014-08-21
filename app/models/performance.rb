@@ -31,6 +31,46 @@ class Performance < ActiveRecord::Base
     end
   end
 
+  def null_cor_present?
+    contact_with_role("Contracting Officer Representative").class == NullContact
+  end
+
+  def null_supervisor_present?
+    contact_with_role("Supervisor").class == NullContact
+  end
+
+  def null_contract_lead_present?
+    contact_with_role("Contract Lead").class == NullContact
+  end
+
+  def null_company_representative_present?
+    contact_with_role("Company Representative").class == NullContact
+  end
+
+  def contracting_officer_representative
+    contact_with_role("Contracting Officer Representative")
+  end
+
+  def supervisor
+    contact_with_role("Supervisor")
+  end
+
+  def contract_lead
+    contact_with_role("Contract Lead")
+  end
+
+  def company_representative
+    contact_with_role("Company Representative")
+  end
+
+  def period_start
+    starts_on.to_formatted_s(:long)
+  end
+
+  def period_end
+    ends_on.to_formatted_s(:long)
+  end
+
   def role_for(contact)
     performance_contacts.find_by(contact: contact).role
   end
@@ -41,13 +81,5 @@ class Performance < ActiveRecord::Base
 
   def partner_references
     contacts.partners
-  end
-
-  def period_start
-    starts_on.to_formatted_s(:long)
-  end
-
-  def period_end
-    ends_on.to_formatted_s(:long)
   end
 end

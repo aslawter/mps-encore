@@ -2,7 +2,7 @@
 
 <h3>Performance History</h3>
 
-<%= render "performances" %>
+<%= render "performances", performances: @performances %>
 
 <h3>Contacts</h3>
 <%= link_to "Create a new contact", [:new, @partner, :contact] %>

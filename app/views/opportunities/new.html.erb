@@ -3,8 +3,8 @@
   <%= form_for [@performance, @opportunity] do |form| %>
     <%= render "error_messages", target: @opportunity %>
     <div>
-      <%= form.label :solicitation, "Solicitation Title" %>
-      <%= form.collection_select :solicitation, @solicitations, :id, :title, include_blank: "Select One" %>
+      <%= form.label :solicitation_id, "Solicitation Title" %>
+      <%= form.collection_select :solicitation_id, @solicitations, :id, :title, include_blank: "Select One" %>
     </div>
     <div>
       <%= form.submit :submit %>

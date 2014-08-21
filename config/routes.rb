@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :performances, only: [:show, :edit, :index] do
-    resources :performance_contacts, only: [:new, :create]
+    resources :performance_contacts, only: [:new, :create, :edit, :update]
     resources :opportunities, only: [:new, :create]
     resource :performance_download, only: [:create]
   end

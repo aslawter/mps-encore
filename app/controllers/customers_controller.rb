@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = current_user.customers.new(customer_params)
+    @customer = current_user.customers.new(customer_params.merge(updated_by_id: current_user.id))
 
     if @customer.save
       redirect_to :customers
