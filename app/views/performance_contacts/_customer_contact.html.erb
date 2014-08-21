@@ -7,7 +7,8 @@
     </div>
     <div>
       <%= form.label :role, "Role on Contract" %>
-      <%= form.select :role, PerformanceContact::CUSTOMER_ROLE, include_blank: "Select One" %>
+      <%= form.hidden_field :role, value: role %>
+      <%= role %>
     <div>
       <%= form.submit :submit %>
     </div>

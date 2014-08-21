@@ -4,7 +4,7 @@
     <table>
       <tr>
         <th></th>
-        <th>Contracting Officer Representative | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
+        <th>Contracting Officer Representative | <%= link_to "add/change", new_performance_performance_contact_path(@performance, role: "Contracting Officer Representative") %>
         <th>Supervisor/Manager | <%= link_to "add/change", [:new, @performance, :performance_contact] %></th>
       </tr>
       <tr>

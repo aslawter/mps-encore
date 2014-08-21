@@ -2,7 +2,7 @@
 <p>Performance Name: <%= @performance.title %></p>
 
 <h3>Add a Customer Contact from <%= @customer.name %></h3>
-<%= render "customer_contact" %>
+<%= render "customer_contact", role: @role %>
 
 <p>Don't see the customer contact you're looking for? <%= link_to "Add a customer contact here", [:new, @customer, :contact] %>
 

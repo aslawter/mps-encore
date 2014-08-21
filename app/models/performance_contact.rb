@@ -1,5 +1,5 @@
 class PerformanceContact < ActiveRecord::Base
-  CUSTOMER_ROLE = ["Contracting Officer Technical Representative", "Supervisor", "Other"]
+  CUSTOMER_ROLE = ["Contracting Officer Representative", "Supervisor", "Other"]
   PARTNER_ROLE = ["Company Representative", "Other"]
   ALL_ROLES = CUSTOMER_ROLE + PARTNER_ROLE
 

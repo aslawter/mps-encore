@@ -1,5 +1,10 @@
 class PerformanceContactsController < ApplicationController
   def new
+    if PerformanceContact::ALL_ROLES.include?(params[:role])
+      @role = params[:role]
+    else
+      @role = "INVALID ROLE"
+    end
     @performance_contact = PerformanceContact.new
     @performance = Performance.find(params[:performance_id])
     @customer = @performance.customer
