@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817142639) do
+ActiveRecord::Schema.define(version: 20140822185030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: true do |t|
+    t.string   "name",            default: "", null: false
+    t.string   "file",            default: "", null: false
+    t.integer  "updated_by_id",                null: false
+    t.integer  "solicitation_id",              null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "attachments", ["solicitation_id"], name: "index_attachments_on_solicitation_id", using: :btree
 
   create_table "contacts", force: true do |t|
     t.integer  "organization_id",                null: false
