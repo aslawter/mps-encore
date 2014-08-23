@@ -1,6 +1,7 @@
 class Solicitation < ActiveRecord::Base
   has_many :opportunities
   has_many :performances, through: :opportunities
+  has_many :attachments, dependent: :destroy
 
   belongs_to :user
   belongs_to :customer

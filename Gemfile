@@ -13,6 +13,7 @@ gem 'font-awesome-sass'
 gem 'redcarpet'
 gem 'rubyzip', require: 'zip'
 gem 'monban-generators'
+gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
 #for user authentication
 gem 'sass-rails', '~> 4.0.3'

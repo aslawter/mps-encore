@@ -9,8 +9,8 @@
       <tr>
         <td><%= link_to performance.title, performance %></td>
         <td><%= link_to performance.customer.name, performance.customer %></td>
-        <td><%= performance.starts_on.to_formatted_s(:rfc822) %> -
-          <%= performance.ends_on.to_formatted_s(:rfc822) %></td>
+        <td><%= performance.period_start %> -
+          <%= performance.period_end %></td>
         <td><%= number_to_currency(performance.value) %></td>
       </tr>
     <% end %>

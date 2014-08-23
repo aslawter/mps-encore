@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20140822185030) do
   enable_extension "plpgsql"
 
   create_table "attachments", force: true do |t|
-    t.string   "name",            default: "", null: false
     t.string   "file",            default: "", null: false
+    t.integer  "user_id",                      null: false
     t.integer  "updated_by_id",                null: false
     t.integer  "solicitation_id",              null: false
     t.datetime "created_at",                   null: false

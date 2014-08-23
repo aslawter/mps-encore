@@ -1,0 +1,10 @@
+<h3>Upload a copy of a performance used for <%= @solicitation.title %></h3>
+
+<%= form_for [@solicitation, @attachment], :html => {:multipart => true} do |form| %>
+  <%= render "error_messages", target: @attachment %>
+  <div>
+    <%= form.label :file %>
+    <%= form.file_field :file %>
+  </div>
+  <%= form.submit :submit %>
+<% end %>
