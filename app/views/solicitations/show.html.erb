@@ -45,7 +45,7 @@
   <%= link_to "Add new performance attachment", [:new, @solicitation, :attachment] %>
   <ul>
     <% @attachments.each do |attachment| %>
-      <li><%= attachment.file %></li>
+      <li><%= link_to File.basename(attachment.file.path), attachment.file.url %></li>
       <% end %>
   </ul>
 </div>

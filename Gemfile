@@ -16,6 +16,8 @@ gem 'monban-generators'
 gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
 gem "fog"
+gem 'dotenv-rails', :groups => [:development, :test]
+# loads environment variables from .env into ENV in development.
 #for user authentication
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

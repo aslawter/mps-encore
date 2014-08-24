@@ -45,6 +45,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
+    dotenv-rails (0.11.1)
+      dotenv (= 0.11.1)
     erubis (2.7.0)
     excon (0.39.5)
     execjs (2.2.1)
@@ -174,6 +179,7 @@ DEPENDENCIES
   bourbon
   carrierwave
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   fog
   font-awesome-sass
   jbuilder (~> 2.0)
