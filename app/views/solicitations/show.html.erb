@@ -40,8 +40,16 @@
   </tr>
   </table>
 </div>
-<h3>Actual performances used (Attachments)</h3>
-<%= link_to "Add new performance attachment", [:new, @solicitation, :attachment] %>
+<div>
+  <h3>Actual performances used (Attachments)</h3>
+  <%= link_to "Add new performance attachment", [:new, @solicitation, :attachment] %>
+  <ul>
+    <% @attachments.each do |attachment| %>
+      <li><%= attachment.file %></li>
+      <% end %>
+  </ul>
+</div>
+
 <div>
   <% if @performances.any? %>
     <h3>Performances designated for use with this solicitation:</h3>

@@ -29,6 +29,7 @@ class SolicitationsController < ApplicationController
   def show
     @solicitation = Solicitation.find(params[:id])
     @performances = @solicitation.performances
+    @attachments = @solicitation.attachments
   end
 
   private

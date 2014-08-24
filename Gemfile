@@ -15,6 +15,7 @@ gem 'rubyzip', require: 'zip'
 gem 'monban-generators'
 gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
+gem "fog"
 #for user authentication
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
