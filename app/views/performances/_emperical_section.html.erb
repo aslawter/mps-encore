@@ -1,51 +1,46 @@
-<div>
-  <table style="width:500px">
-  <tr>
-    <th>Past Performance Summary</th>
-    <th><%= link_to "Edit summary", [:edit, @customer, @performance] %> </th>
-  </tr>
-  <tr>
-    <td>Customer</td>
-    <td><%= link_to @performance.customer.name, @performance.customer %></td>
-  </tr>
-  <tr>
-    <td>Contract Number</td>
-    <td><%= @performance.contract_number %></td>
-  </tr>
-  <tr>
-    <td>Period of Performance </td>
-    <td><%= @performance.period_start %> to <%= @performance.period_end %></td>
-  </tr>
-  <tr>
-    <td>Contract Type</td>
-    <td><%= @performance.contract_type %></td>
-  </tr>
-  <tr>
-    <td>Contract Value</td>
-    <td><%= number_to_currency(@performance.value) %></td>
-  </tr>
-  <tr>
-    <td>Prime Contract?</td>
-    <td>
-      <% if @performance.prime_contractor %>
-        Yes
-      <% else %>
-        No
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <% if @performance.prime_contractor %>
-        Partner Company
-      <% else %>
-        Prime Company
-      <% end %>
-    </td>
-    <td><%= link_to @performance.partner.name, @performance.partner %></td>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td><%= markdown(@performance.description) %></td>
-  </table>
-</div>
+<table class="table-borders">
+<tr>
+  <th>Performance Summary</th>
+  <th><%= link_to "Edit Performance", [:edit, @customer, @performance] %> </th>
+</tr>
+<tr>
+  <td>Customer</td>
+  <td><%= link_to @performance.customer.name, @performance.customer %></td>
+</tr>
+<tr>
+  <td>Contract Number</td>
+  <td><%= @performance.contract_number %></td>
+</tr>
+<tr>
+  <td>Period of Performance </td>
+  <td><%= @performance.period_start %> to <%= @performance.period_end %></td>
+</tr>
+<tr>
+  <td>Contract Type</td>
+  <td><%= @performance.contract_type %></td>
+</tr>
+<tr>
+  <td>Contract Value</td>
+  <td><%= number_to_currency(@performance.value) %></td>
+</tr>
+<tr>
+  <td>Prime Contract?</td>
+  <td>
+    <% if @performance.prime_contractor %>
+      Yes
+    <% else %>
+      No
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <td>
+    <% if @performance.prime_contractor %>
+      Partner Company
+    <% else %>
+      Prime Company
+    <% end %>
+  </td>
+  <td><%= link_to @performance.partner.name, @performance.partner %></td>
+</tr>
+</table>

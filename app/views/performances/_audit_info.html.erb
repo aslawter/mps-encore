@@ -1,0 +1,13 @@
+<div class="audit-info">
+  <p>
+    Created by: <%= @performance.user.email %><br>
+    Date created: <%= @performance.created_at.to_formatted_s(:long) %>
+  </p>
+</div>
+
+<div class="audit-info">
+  <p>
+    Last Updated by: <%= @updater.email %><br>
+    Updated on: <%= @performance.updated_at.to_formatted_s(:long) %>
+  </p>
+</div>

@@ -1,7 +1,7 @@
 class Performance < ActiveRecord::Base
   CONTRACT_TYPE = ["Firm-Fixed Price", "Time and Materials"]
 
-  has_many :performance_contacts
+  has_many :performance_contacts, dependent: :destroy
   has_many :contacts, through: :performance_contacts
   has_many :opportunities
   has_many :solicitations, through: :opportunities

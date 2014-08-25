@@ -1,0 +1,59 @@
+<table class="performance-references">
+  <colgroup>
+    <col style="width:20%">
+    <col style="width:40%">
+    <col style="width:40%">
+  </colgroup>
+  <tr>
+    <th>Customer</th>
+    <% if @performance.null_cor_present? %>
+      <th>
+        Contracting Officer Representative | <%= link_to "Add Contact",
+          new_performance_performance_contact_path(
+            @performance, role: "Contracting Officer Representative") %>
+      </th>
+    <% else %>
+      <th>
+        Contracting Officer Representative | <%= link_to "Edit",
+          edit_performance_performance_contact_path(
+            @performance, @performance.contracting_officer_representative.id,
+              role: "Contracting Officer Representative") %>
+      </th>
+    <% end %>
+
+    <% if @performance.null_supervisor_present? %>
+      <th>
+        Supervisor | <%= link_to "Add Contact",
+          new_performance_performance_contact_path(
+            @performance, role: "Supervisor") %>
+      </th>
+    <% else %>
+      <th>
+        Supervisor | <%= link_to "Edit",
+          edit_performance_performance_contact_path(
+            @performance, @performance.supervisor.id,
+            role: "Supervisor") %>
+      </th>
+    <% end %>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= @performance.contracting_officer_representative.full_name %></td>
+    <td><%= @performance.supervisor.full_name %></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= @performance.contracting_officer_representative.email %></td>
+    <td><%= @performance.supervisor.email %></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><%= number_to_phone(@performance.contracting_officer_representative.phone) %></td>
+    <td><%= number_to_phone(@performance.supervisor.phone) %></td>
+  </tr>
+  <tr>
+    <td>Fax</td>
+    <td><%= number_to_phone(@performance.contracting_officer_representative.fax) %></td>
+    <td><%= number_to_phone(@performance.supervisor.fax) %></td>
+  </tr>
+</table>

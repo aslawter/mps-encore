@@ -1,0 +1,14 @@
+<div>
+  <%= button_to "Add to a solicitation", [:new, @performance, :opportunity], method: :get %>
+</div>
+
+<% if @performance.solicitations.any? %>
+  <h4>This performance is/was used for the following solicitations:</h4>
+  <ol>
+    <% @performance.solicitations.each do |solicitation| %>
+      <li><%= link_to solicitation.title, solicitation %> | <%= solicitation.customer.name %></li>
+    <% end %>
+  </ol>
+<% else %>
+  <h4>This performance is not associated with any solicitations</h4>
+<% end %>

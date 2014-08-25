@@ -1,7 +1,7 @@
 <h3>Solicitation for <%= @solicitation.title %></h3>
 
-<div>
-  <table style="width:500px">
+<div class="table-borders">
+  <table>
   <tr>
     <th>Solicitation Details</th>
     <th></th>
@@ -15,7 +15,7 @@
     <td><%= @solicitation.solicitation_number %></td>
   </tr>
   <tr>
-    <td>Due Date </td>
+    <td>Due Date</td>
     <td><%= @solicitation.deadline.to_formatted_s(:long) %></td>
   </tr>
   <tr>
@@ -40,9 +40,9 @@
   </tr>
   </table>
 </div>
-<div>
-  <h3>Actual performances used (Attachments)</h3>
-  <%= link_to "Add new performance attachment", [:new, @solicitation, :attachment] %>
+<div class ="performance-attachments">
+  <h3>Actual performances used</h3>
+  <%= button_to "Add new performance attachment", [:new, @solicitation, :attachment], method: :get %>
   <ul>
     <% @attachments.each do |attachment| %>
       <li><%= link_to File.basename(attachment.file.path), attachment.file.url %></li>
@@ -56,5 +56,6 @@
     <%= render "performances", performances: @solicitation.performances  %>
   <% else %>
     <h3>There are no performances associated with this solicitation</h3>
+    <p>To add a performance, navigate to the performance and add the solicitation there</p>
   <% end %>
 </div>

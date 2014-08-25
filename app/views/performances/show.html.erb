@@ -1,35 +1,43 @@
-<h2>Past Performance for <%= @performance.title %></h3>
-
-<div>
-  <p>
-    Created by: <%= @performance.user.email %><br>
-    Date created: <%= @performance.created_at.to_formatted_s(:long) %>
-  </p>
+<div class="page-title">
+  <h2>Past Performance for <%= @performance.title %></h3>
 </div>
 
-<div>
-  <p>
-    Last Updated by: <%= @updater.email %><br>
-    Updated on: <%= @performance.updated_at.to_formatted_s(:long) %>
-  </p>
-</div>
+<%= render 'audit_info' %>
+
 <div class="performance-download">
-  <%= button_to "Download to MS Word", [@performance, :performance_download] %>
+  <%= button_to "Download to MS Word", [@performance, :performance_download], class: "download-button" %>
+</div>
 
 <%= render "emperical_section" %>
 
-<%= render "contact_references" %>
-<div>
-  <p>Associate this performance with a <%= link_to "solicitation.", [:new, @performance, :opportunity] %></p>
-</div>
 
-<% if @performance.solicitations.any? %>
-  <h3>This performance is linked to the following solicitations:</h3>
-  <ul>
-    <% @performance.solicitations.each do |solicitation| %>
-      <li><%= link_to solicitation.title, solicitation %> || Customer: <%= solicitation.customer.name %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <h3>This performance is not associated with any solicitations</h3>
-<% end %>
+<div class="vertical-tabs-container">
+  <div class="vertical-tabs">
+    <a href="#" class="js-vertical-tab vertical-tab is-active" rel="tab1">Description</a>
+    <a href="#" class="js-vertical-tab vertical-tab" rel="tab2">Customer References</a>
+    <a href="#" class="js-vertical-tab vertical-tab" rel="tab3">Partner References</a>
+    <a href="#" class="js-vertical-tab vertical-tab" rel="tab4">Associated Performances</a>
+  </div>
+
+  <div class="vertical-tab-content-container">
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">Description</a>
+    <div id="tab1" class="js-vertical-tab-content vertical-tab-content">
+      <%= markdown(@performance.description) %>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">Customer References</a>
+    <div id="tab2" class="js-vertical-tab-content vertical-tab-content">
+      <%= render "customer_references" %>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">Partner References</a>
+    <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
+      <%= render "partner_references" %>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">Associated Performances</a>
+    <div id="tab4" class="js-vertical-tab-content vertical-tab-content">
+      <%= render "associated_solicitations" %>
+    </div>
+  </div>
+</div>

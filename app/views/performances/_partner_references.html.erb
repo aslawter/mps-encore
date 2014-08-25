@@ -1,0 +1,65 @@
+<table class="performance-references">
+  <colgroup>
+    <col style="width:20%">
+    <col style="width:40%">
+    <col style="width:40%">
+  </colgroup>
+  <tr>
+    <th>
+      <% if @performance.prime_contractor %>
+        Partner
+      <% else %>
+        Prime Contractor
+      <% end %>
+    </th>
+    <% if @performance.null_contract_lead_present? %>
+      <th>
+        Contract Lead | <%= link_to "Add Contact",
+          new_performance_performance_contact_path(
+            @performance, role: "Contract Lead") %>
+      </th>
+      <% else %>
+        <th>
+          Contract Lead | <%= link_to "Edit",
+            edit_performance_performance_contact_path(
+              @performance, @performance.contract_lead.id,
+                role: "Contract Lead") %>
+        </th>
+      <% end %>
+
+      <% if @performance.null_company_representative_present? %>
+        <th>
+          Company Representative | <%= link_to "Add Contact",
+            new_performance_performance_contact_path(
+              @performance, role: "Company Representative") %>
+        </th>
+      <% else %>
+        <th>
+          Company Representative | <%= link_to "Edit",
+            edit_performance_performance_contact_path(
+              @performance, @performance.company_representative.id,
+              role: "Company Representative") %>
+        </th>
+      <% end %>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= @performance.contract_lead.full_name %></td>
+    <td><%= @performance.company_representative.full_name %></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= @performance.contract_lead.email %></td>
+    <td><%= @performance.company_representative.email %></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><%= number_to_phone(@performance.contract_lead.phone) %></td>
+    <td><%= number_to_phone(@performance.company_representative.phone) %></td>
+  </tr>
+  <tr>
+    <td>Fax</td>
+    <td><%= number_to_phone(@performance.contract_lead.fax) %></td>
+    <td><%= number_to_phone(@performance.company_representative.fax) %></td>
+  </tr>
+</table>

@@ -1,0 +1,17 @@
+.header {
+  @include outer-container;
+
+  .sign-in {
+    @include span-columns(5);
+
+    p {
+      margin: 0;
+      text-align: right;
+    }
+  }
+
+  .logo {
+    @include span-columns(7);
+    margin: 0;
+  }
+}

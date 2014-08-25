@@ -5,6 +5,6 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV.fetch("AWS_SECRET_ACCESS_KEY")
   }
 
-  config.fog_directory = "Encore-Attachments"
+  config.fog_directory = ENV.fetch("S3_BUCKET_NAME")
   config.fog_public = false
 end
