@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MpsEncore</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<title>MpsEncore</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 </head>
 <body>
 
-<section class="header">
-  <div class="logo">
-    <h1><%= link_to "Encore", :root %><h1>
-  </div>
-
-  <div class="sign-in">
-    <% if signed_in? %>
-      <p>You are signed in as <%= current_user.email %>
-      <%= link_to "Sign out", session_path, method: :delete %>
-      </p>
-      <% if current_user.admin? %>
-        <p>You are designated as a site admin</p>
-      <% end %>
-    <% end %>
-  </div>
-</section>
 
 <section class="page-container">
+  <section class="header">
+    <div class="logo">
+      <h1><%= link_to "Encore", :root %><h1>
+    </div>
+  </section>
+
+  <% if signed_in? %>
+    <%= render "banner" %>
+    <div class="sign-in">
+      <p>You are signed in as <%= current_user.email %>.
+    <% if current_user.admin? %>
+      You are designated as a site admin.</p>
+    <% end %>
+  <% end %>
+
   <%= yield %>
 </section>
 

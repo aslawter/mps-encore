@@ -1,0 +1,28 @@
+<header class="navigation">
+  <div class="navigation-wrapper">
+    <a href="javascript:void(0)" class="logo">
+      <img src="" alt="">
+    </a>
+    <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li class="nav-link"><%= link_to "Performances", :performances %></li>
+        <li class="nav-link"><%= link_to "Solicitations", :solicitations %></li>
+        <li class="nav-link"><%= link_to "Customers", :customers %></li>
+        <li class="nav-link"><%= link_to "Partners", :partners %></li>
+        <li class="nav-link"><%= link_to "Contacts", :contacts %></li>
+      </ul>
+    </div>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <div class="search-and-submit">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="">
+          </button>
+        </div>
+      </div>
+      <%= link_to "Sign Out", session_path, method: :delete, class: "sign-up" %>
+    </div>
+  </div>
+</header>

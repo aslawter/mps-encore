@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   constraints Monban::Constraints::SignedIn.new do
-    root "dashboards#show", as: :dashboard
+    root "performances#index", as: :dashboard
   end
 
   root to: "sessions#new"
