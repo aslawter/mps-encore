@@ -16,10 +16,12 @@
     <div class="navigation-tools">
       <div class="search-bar">
         <div class="search-and-submit">
-          <input type="search" placeholder="Enter Search" />
-          <button type="submit">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="">
-          </button>
+          <%= form_tag "/search", method: "get" do %>
+            <%= search_field_tag "search", nil, placeholder: "Search Performances" %>
+            <button type="submit", "search", name: nil >
+              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="">
+            </button>
+          <% end %>
         </div>
       </div>
       <%= link_to "Sign Out", session_path, method: :delete, class: "sign-up" %>

@@ -8,6 +8,14 @@
   }
 }
 
+.classic-bullets {
+  ol {
+    list-style-type: decimal;
+    margin-bottom: $base-line-height / 2;
+    padding-left: $base-line-height;
+  }
+}
+
 .table-borders {
   $table-border-color: $base-border-color;
   $table-border: 1px solid $table-border-color;

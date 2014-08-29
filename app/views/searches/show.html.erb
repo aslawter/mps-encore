@@ -1,0 +1,13 @@
+<h2>Search Results</h2>
+
+<div class="classic-bullets">
+  <% if @found_results.empty? %>
+    <h3>No results found.</h3>
+  <% else %>
+    <ol>
+      <% @found_results.each do |found_result| %>
+        <li><%= link_to found_result.title, found_result %></li>
+      <% end %>
+    </ol>
+  <% end %>
+</div>
