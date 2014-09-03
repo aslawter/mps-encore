@@ -39,6 +39,10 @@
     </td>
     <td><%= @solicitation.partner.name  %></td>
   </tr>
+  <tr>
+    <td>Description</td>
+    <td><%= markdown(@solicitation.description) %></td>
+  </td>
 </table>
 <div class ="performance-attachments">
   <h3>Actual performances used</h3>
