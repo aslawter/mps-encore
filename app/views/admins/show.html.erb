@@ -1,4 +1,4 @@
-<h2>MPS Dashboard Page</h2>
+<h2>Administrator Page</h2>
 
 <% if current_user.admin? %>
   <p>Users awaiting site access: <%= @users.count %></p>
@@ -10,22 +10,3 @@
     <% end %>
   </ul>
 <% end %>
-<div>
-  <%= link_to "All Performances", [:performances] %>
-</div>
-
-<div>
-  <%= link_to "Solicitations", [:solicitations] %>
-</div>
-
-<div>
-  <%= link_to "Customers", :customers %>
-</div>
-
-<div>
-  <%= link_to "Partners", :partners %>
-</div>
-
-<div>
-  <%= link_to "Contacts", :contacts %>
-</div>

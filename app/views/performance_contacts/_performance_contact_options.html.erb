@@ -1,5 +1,5 @@
 <% if PerformanceContact::CUSTOMER_ROLE.include?(@role) %>
   <%= render "customer_contact", role: @role, performance: @performance, customer: @customer %>
 <% else %>
-  <%= render "partner_contact", role: @role, performance: @performance,  partner: @partner %>
+  <%= render "partner_contact", role: @role, performance: @performance, partner: @partner %>
 <% end %>

@@ -3,6 +3,7 @@ require "monban/constraints/signed_in"
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resource :search, only: [:show]
+  resource :admin, only: [:show]
   resources :users, only: [:new, :create, :destroy] do
     resource :activation_approvals, only: [:create]
     resource :pending_users, only: [:show]
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :contacts, only: [:index, :show]
-  resources :customers, only: [:new, :create, :show, :index] do
+  resources :customers, only: [:new, :create, :show, :index, :edit] do
     resources :contacts, only: [:new, :create]
     resources :performances, only: [:new, :create, :update]
   end

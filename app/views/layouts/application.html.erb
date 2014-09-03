@@ -21,7 +21,7 @@
     <div class="sign-in">
       <p>You are signed in as <%= current_user.email %>.
     <% if current_user.admin? %>
-      You are designated as a site admin.</p>
+      You are designated as a site <%= link_to "administrator", :admin %>.</p>
     <% end %>
   <% end %>
 
