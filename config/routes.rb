@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resource :pending_users, only: [:show]
   end
 
-  resources :solicitations, only: [:new, :create, :index, :show] do
+  resources :solicitations, only: [:new, :create, :index, :show, :edit, :update] do
     resources :attachments, only: [:new, :create, :show]
   end
 

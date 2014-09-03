@@ -32,6 +32,28 @@ class SolicitationsController < ApplicationController
     @attachments = @solicitation.attachments
   end
 
+  def edit
+    @solicitation = Solicitation.find(params[:id])
+    @customers = Customer.all
+    @partners = Partner.all
+  end
+
+  def update
+    solicitation = Solicitation.find(params[:id])
+
+    if solicitation.update(
+      solicitation_params.merge(
+        updated_by: current_user
+      )
+    )
+      redirect_to solicitation
+    else
+      @customers = Customer.all
+      @partners = Partner.all
+      render :new
+    end
+  end
+
   private
 
   def solicitation_params
