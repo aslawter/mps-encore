@@ -8,7 +8,7 @@ class PerformanceContact < ActiveRecord::Base
   belongs_to :user
   belongs_to :updated_by, class_name: "User"
 
-  validates :contact_id, presence: true
+  validates :contact_id, presence: true, uniqueness: true
 
   validates :role, presence: true,
     inclusion: {in: ALL_ROLES, message: "%{value} is not a valid contract type"}
